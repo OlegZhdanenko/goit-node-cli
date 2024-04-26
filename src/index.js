@@ -1,7 +1,9 @@
-import {listContacts,
+import {
+    listContacts,
     getContactById,
     removeContact,
-    addContact} from "./contacts.js";
+    addContact
+} from "./contacts.js";
 import { program } from "commander";
 
 
