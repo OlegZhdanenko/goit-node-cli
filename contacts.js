@@ -29,7 +29,7 @@ async function getContactById(contactId) {
     if (typeof contact === "undefined") {
         return  console.log(null)
     }
-    return console.log(contact);;
+    return console.table(contact);;
 };
 
 async function removeContact(contactId) {
@@ -41,7 +41,7 @@ async function removeContact(contactId) {
     
     const deletedContact = contacts.splice(index, 1)[0];
     await fs.writeFile(filePath, JSON.stringify(contacts, null, 2));
-    return console.log(deletedContact) ;
+    return console.table(deletedContact) ;
 };
 
 
@@ -49,7 +49,7 @@ async function addContact(name, email, phone) {
     const contacts = await readFile();
     const newContact = { id: crypto.randomUUID(),name,email,phone }
     contacts.push(newContact)
-    console.log(newContact);
+    console.table(newContact);
     await writeFile(contacts)
 };
 
