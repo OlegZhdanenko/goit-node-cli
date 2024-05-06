@@ -11,22 +11,24 @@ import { program } from "commander";
 async function invokeAction({ action, id, name, email, phone }) {
     switch (action) {
     case "list":
-    const list = await listContacts()
-        return list
-
+            const list = await listContacts()
+            console.table(list)
+            return list
     case "get":
-    const user = await getContactById(id)
-        return user
+            const user = await getContactById(id)
+            console.log(user)
+            return user
 
     case "add":
-    const newContact= await addContact(name, email, phone)
-        return newContact
+            const newContact = await addContact(name, email, phone)
+            return newContact
     case "remove":
-    const removedContacts = await removeContact(id) 
-        return removedContacts
+            const removedContacts = await removeContact(id) 
+            console.log(removedContacts)
+            return removedContacts
 
     default:
-      console.warn("\x1B[31m Unknown action type!");
+            console.warn("\x1B[31m Unknown action type!");
     }
 }
 
